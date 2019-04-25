@@ -1,6 +1,8 @@
 # **Romulus** Authenticated Encryption 
 
-Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). See also his sibling submission [Remus](https://remusae.github.io/remus/)
+Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the specifications [here](https://romulusae.github.io/romulus/Romulus.pdf). 
+
+See also his sibling submission [Remus](https://remusae.github.io/remus/) 
 
 ## Team
 
