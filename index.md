@@ -6,9 +6,9 @@ See also his sibling submission [Remus](https://remusae.github.io/remus/)
 
 ## Team
 
-- **Tetsu Iwata**, Nagoya University, Japan
-- **Mustafa Khairallah**, Nanyang Technological University, Singapore
-- **Kazuhiko Minematsu**, NEC, Japan
+- **[Tetsu Iwata](http://www.nuee.nagoya-u.ac.jp/labs/tiwata/)**, Nagoya University, Japan
+- **[Mustafa Khairallah](https://www.mustafa-khairallah.com/)**, Nanyang Technological University, Singapore
+- **[Kazuhiko Minematsu](https://www.nec.com/en/global/rd/people/kazuhiko_minematsu.html)**, NEC, Japan
 - **[Thomas Peyrin](https://sites.google.com/site/thomaspeyrin/)**, Nanyang Technological University, Singapore
 
 You can contact us on [remus-and-romulus@googlegroups.com](mailto:remus-and-romulus@googlegroups.com). 
