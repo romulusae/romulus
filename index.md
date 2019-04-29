@@ -2,7 +2,7 @@ Romulus is a submission to the the [NIST lightweight competition](https://csrc.n
 
 See also his sibling submission [Remus](https://remusae.github.io/remus/) 
 
-![Remus and Romulus](https://github.com/remusae/remus/remus_romulus.png "Remus and Romulus")
+![Remus and Romulus](https://github.com/romulusae/romulus/remus_romulus.png "Remus and Romulus")
 
 
 # Team
