@@ -10,7 +10,7 @@ See also his sibling submission [Remus](https://remusae.github.io/remus/)
 - **[Kazuhiko Minematsu](https://www.nec.com/en/global/rd/people/kazuhiko_minematsu.html)**, NEC, Japan
 - **[Thomas Peyrin](https://sites.google.com/site/thomaspeyrin/)**, Nanyang Technological University, Singapore
 
-You can contact us on [remus-and-romulus@googlegroups.com](mailto:remus-and-romulus@googlegroups.com). 
+You can contact us on [remus-and-romulus@googlegroups.com](mailto:remus-and-romulus@googlegroups.com)
 
 
 # Features
