@@ -1,4 +1,4 @@
-Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the GitHub page [here](https://github.com/romulusae/romulus)
+Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the GitHub page with some hardware and software implementations [here](https://github.com/romulusae/romulus)
 
 See also his sibling submission [Remus](https://remusae.github.io/remus/) 
 
