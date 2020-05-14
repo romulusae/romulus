@@ -1,6 +1,6 @@
 # Skinny Python Implementation
 
-# Copyright 2018:
+# Copyright 2020:
 #     Thomas Peyrin <thomas.peyrin@gmail.com>
 
 # This program is free software; you can redistribute it and/or
@@ -86,8 +86,9 @@ PT = [9, 15, 8, 13, 10, 14, 12, 11, 0, 1, 2, 3, 4, 5, 6, 7]
 #VERSION 3 is SKINNY-128-128
 #VERSION 4 is SKINNY-128-256
 #VERSION 5 is SKINNY-128-384
-TAB_ROUNDS = [32, 36, 40, 40, 48, 56]
-TAB_TWEAK_LENGTH = [16, 32, 48, 16, 32, 48]
+#VERSION 6 is SKINNY-128-384+
+TAB_ROUNDS = [32, 36, 40, 40, 48, 56, 40]
+TAB_TWEAK_LENGTH = [16, 32, 48, 16, 32, 48, 48]
 
 # functions that implement the Skinny TBC encryption
 def skinny_enc(plaintext, tweakey, version):
@@ -99,7 +100,7 @@ def skinny_enc(plaintext, tweakey, version):
     if version in [0,1,2]: 
         s = [(plaintext[i>>1] >> 4*((i+1)%2)) & 0xf for i in range(16)] 
         tk[0] = [(tweakey[i>>1] >> 4*((i+1)%2)) & 0xf for i in range(TAB_TWEAK_LENGTH[version])]
-    elif version in [3,4,5]: 
+    elif version in [3,4,5,6]: 
         s = [plaintext[i] for i in range(16)]
         tk[0] = [tweakey[i]  for i in range(TAB_TWEAK_LENGTH[version])]
         
@@ -116,7 +117,7 @@ def skinny_enc(plaintext, tweakey, version):
         
         if version in [0,1,2]: 
             for j in range(16): s[j] = S4[s[j]]
-        elif version in [3,4,5]: 
+        elif version in [3,4,5,6]: 
             for j in range(16): s[j] = S8[s[j]]
         
         s[0] ^= c[i] & 0xf
@@ -126,7 +127,7 @@ def skinny_enc(plaintext, tweakey, version):
         for j in range(8): s[j] ^= tk[i][j]   
         if version in [1,4]:
             for j in range(8): s[j] ^= tk[i][j+16]
-        if version in [2,5]:
+        if version in [2,5,6]:
             for j in range(8): s[j] ^= tk[i][j+16] ^ tk[i][j+32]
 
         s[4], s[5], s[6], s[7] = s[7], s[4], s[5], s[6]
@@ -136,7 +137,7 @@ def skinny_enc(plaintext, tweakey, version):
         for j in range(4): s[j], s[4+j], s[8+j], s[12+j] = s[j] ^ s[8+j] ^ s[12+j] , s[j], s[4+j] ^ s[8+j] , s[0+j] ^ s[8+j]   
         
     if version in [0,1,2]:  ciphertext = [(s[2*i]<<4) ^ s[2*i+1] for i in range(8)]
-    if version in [3,4,5]:  ciphertext = [s[i] for i in range(16)]
+    if version in [3,4,5,6]:  ciphertext = [s[i] for i in range(16)]
     
     if DEBUG==1: print("Ciphertext = " + "".join("{:02X}".format(_) for _ in ciphertext) + "\n")
 
@@ -153,7 +154,7 @@ def skinny_dec(ciphertext, tweakey, version):
     if version in [0,1,2]: 
         s = [(ciphertext[i>>1] >> 4*((i+1)%2)) & 0xf for i in range(16)] 
         tk[0] = [(tweakey[i>>1] >> 4*((i+1)%2)) & 0xf for i in range(TAB_TWEAK_LENGTH[version])]
-    elif version in [3,4,5]: 
+    elif version in [3,4,5,6]: 
         s = [ciphertext[i] for i in range(16)]
         tk[0] = [tweakey[i]  for i in range(TAB_TWEAK_LENGTH[version])]
         
@@ -162,9 +163,9 @@ def skinny_dec(ciphertext, tweakey, version):
         for j in range(TAB_TWEAK_LENGTH[version]): tk[i+1][j] = tk[i][j-j%16+PT[j%16]]
         for j in range(8): 
             if version in [1,2]: tk[i+1][j+16] = LFSR_4_TK2[tk[i+1][j+16]]
-            elif version in [4,5]: tk[i+1][j+16] = LFSR_8_TK2[tk[i+1][j+16]] 
+            elif version in [4,5,6]: tk[i+1][j+16] = LFSR_8_TK2[tk[i+1][j+16]] 
             if version in [2]: tk[i+1][j+32] = LFSR_4_TK3[tk[i+1][j+32]]
-            elif version in [5]: tk[i+1][j+32]  = LFSR_8_TK3[tk[i+1][j+32]]
+            elif version in [5,6]: tk[i+1][j+32]  = LFSR_8_TK3[tk[i+1][j+32]]
 
     for i in reversed(range(TAB_ROUNDS[version])):
         
@@ -177,7 +178,7 @@ def skinny_dec(ciphertext, tweakey, version):
         for j in range(8): s[j] ^= tk[i][j]   
         if version in [1,4]:
             for j in range(8): s[j] ^= tk[i][j+16]
-        if version in [2,5]:
+        if version in [2,5,6]:
             for j in range(8): s[j] ^= tk[i][j+16] ^ tk[i][j+32]
     
         s[0] ^= c[i] & 0xf
@@ -186,12 +187,12 @@ def skinny_dec(ciphertext, tweakey, version):
         
         if version in [0,1,2]: 
             for j in range(16): s[j] = S4_inv[s[j]]
-        elif version in [3,4,5]: 
+        elif version in [3,4,5,6]: 
             for j in range(16): s[j] = S8_inv[s[j]]
     
     
     if version in [0,1,2]:  plaintext = [(s[2*i]<<4) ^ s[2*i+1] for i in range(8)]
-    if version in [3,4,5]:  plaintext = [s[i] for i in range(16)]
+    if version in [3,4,5,6]:  plaintext = [s[i] for i in range(16)]
 
     if DEBUG==1: print("Plaintext = " + "".join("{:02X}".format(_) for _ in plaintext) + "\n")
 
@@ -238,3 +239,7 @@ def test_vectors(plaintext,key,version):
 #plaintext = [0xa3,0x99,0x4b,0x66,0xad,0x85,0xa3,0x45,0x9f,0x44,0xe9,0x2b,0x08,0xf5,0x50,0xcb]
 #key = [0xdf,0x88,0x95,0x48,0xcf,0xc7,0xea,0x52,0xd2,0x96,0x33,0x93,0x01,0x79,0x74,0x49,0xab,0x58,0x8a,0x34,0xa4,0x7f,0x1a,0xb2,0xdf,0xe9,0xc8,0x29,0x3f,0xbe,0xa9,0xa5,0xab,0x1a,0xfa,0xc2,0x61,0x10,0x12,0xcd,0x8c,0xef,0x95,0x26,0x18,0xc3,0xeb,0xe8]
 #test_vectors(plaintext,key,5)
+#
+#plaintext = [0xa3,0x99,0x4b,0x66,0xad,0x85,0xa3,0x45,0x9f,0x44,0xe9,0x2b,0x08,0xf5,0x50,0xcb]
+#key = [0xdf,0x88,0x95,0x48,0xcf,0xc7,0xea,0x52,0xd2,0x96,0x33,0x93,0x01,0x79,0x74,0x49,0xab,0x58,0x8a,0x34,0xa4,0x7f,0x1a,0xb2,0xdf,0xe9,0xc8,0x29,0x3f,0xbe,0xa9,0xa5,0xab,0x1a,0xfa,0xc2,0x61,0x10,0x12,0xcd,0x8c,0xef,0x95,0x26,0x18,0xc3,0xeb,0xe8]
+#test_vectors(plaintext,key,6)
