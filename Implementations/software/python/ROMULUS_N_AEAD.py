@@ -1,7 +1,7 @@
 
 # ROMULUS-N Python Implementation
 
-# Copyright 2018:
+# Copyright 2020:
 #     Thomas Peyrin <thomas.peyrin@gmail.com>
 
 # This program is free software; you can redistribute it and/or
@@ -26,12 +26,17 @@ import math
 # # ROMULUS-N
 # ####################################################################
 
-
-# # ROMULUS-N1
-SKINNY_VERSION = 5
+# # ROMULUS-N1+
+SKINNY_VERSION = 6
 T_LENGTH = 16
 COUNTER_LENGTH = 7
 MEMBER_MASK = 0
+
+# # ROMULUS-N1
+# SKINNY_VERSION = 5
+# T_LENGTH = 16
+# COUNTER_LENGTH = 7
+# MEMBER_MASK = 0
 
 # ROMULUS-N2
 # SKINNY_VERSION = 5
