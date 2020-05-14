@@ -54,7 +54,7 @@ COMING SOON
 
 ## Software
  
-You can find reference implementations of Romulus in C and Python, together with test vectors, in [our Github repo](https://github.com/romulusae/romulus):
+You can find reference implementations of Romulus in C and Python, together with test vectors, in [our Github repo](https://github.com/romulusae/romulus).
 
 You can find optimized implementations of Romulus in the following Github repos: 
 - [Alexandre Adomnicai](https://github.com/aadomn/skinny) - Cortex-M optimised implementations
