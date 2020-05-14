@@ -7,7 +7,8 @@ CRYPTO_KEYBYTES = 16
 CRYPTO_NPUBBYTES = N_LENGTH
 CRYPTO_ABYTES = 16
 
-filename = "Python_AEAD_KAT_tk{}_{}_{}_{}.txt".format(3 if (SKINNY_VERSION==5) else 2, 8*CRYPTO_KEYBYTES, 8*CRYPTO_NPUBBYTES, 8*CRYPTO_ABYTES)
+if (SKINNY_VERSION==6): filename = "Python_AEAD_KAT_ROMULUS-N+.txt"
+else: filename = "Python_AEAD_KAT_tk{}_{}_{}_{}.txt".format(3 if (SKINNY_VERSION==5) else 2, 8*CRYPTO_KEYBYTES, 8*CRYPTO_NPUBBYTES, 8*CRYPTO_ABYTES)
 fic = open(filename, "w")
 
 count = 0
