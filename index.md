@@ -1,7 +1,4 @@
-Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the GitHub page with some hardware and software implementations [here](https://github.com/romulusae/romulus)
-
-See also his sibling submission [Remus](https://remusae.github.io/remus/) 
-
+Romulus is a submission to the the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf). 
 
 # Team
 
@@ -31,10 +28,12 @@ COMING SOON
 
 ## Third party analysis
 
-COMING SOON
+A partial list of third party analysis of the Skinny tweakable block ciphers is present [on the Skinny website](https://sites.google.com/site/skinnycipher/security).
 
 
 # Performances and implementations
+
+the GitHub page with some hardware and software implementations [here](https://github.com/romulusae/romulus)
 
 ## Hardware
 
@@ -42,4 +41,8 @@ COMING SOON
 
 ## Software
 
-COMING SOON
+You can find reference implementations of Romulus 
+
+You can find Cortex-M optimised implementations of Romulus in the following Github repos: 
+- [Thomas Peyrin](https://sites.google.com/site/thomaspeyrin/)
+- [Thomas Peyrin](https://sites.google.com/site/thomaspeyrin/)
