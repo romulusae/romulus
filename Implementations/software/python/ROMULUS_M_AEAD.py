@@ -1,7 +1,7 @@
 
 # ROMULUS-M Python Implementation
 
-# Copyright 2018:
+# Copyright 2020:
 #     Thomas Peyrin <thomas.peyrin@gmail.com>
 
 # This program is free software; you can redistribute it and/or
@@ -26,6 +26,11 @@ import math
 # # ROMULUS-M
 # ####################################################################
 
+# # ROMULUS-M1+
+SKINNY_VERSION = 6
+T_LENGTH = 16
+COUNTER_LENGTH = 7
+MEMBER_MASK = 32
 
 # # ROMULUS-M1
 # SKINNY_VERSION = 5
@@ -40,10 +45,10 @@ import math
 # MEMBER_MASK = 96
 
 # # ROMULUS-M3
-SKINNY_VERSION = 4
-T_LENGTH = 12
-COUNTER_LENGTH = 3
-MEMBER_MASK = 160
+# SKINNY_VERSION = 4
+# T_LENGTH = 12
+# COUNTER_LENGTH = 3
+# MEMBER_MASK = 160
 
 N_LENGTH = T_LENGTH
 
