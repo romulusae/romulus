@@ -1,5 +1,4 @@
 |[<font size="+5">Team</font>](https://romulusae.github.io/romulus/#team)  | [Features](https://romulusae.github.io/romulus/#features) | [Rationale](https://romulusae.github.io/romulus/#rationale) |  [Security](https://romulusae.github.io/romulus/#security) | [Performances/Implementations](https://romulusae.github.io/romulus/#performances-and-implementations) | 
-|:---:|:---:|:---:|:---:|:---:|
 
 ---
 
