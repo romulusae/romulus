@@ -51,7 +51,7 @@ COMING SOON
 
 - Romulus-M+. 
 
-For more details, see [our Transactions on Symmetric-key Cryptology 2020 paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131). 
+For more details, see [our Transactions on Symmetric-key Cryptology 2020 paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131) or [our slides at the NIST LWC Worksop 2019](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf).
 
 ## Third party analysis
 
