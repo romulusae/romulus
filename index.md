@@ -1,4 +1,5 @@
-|| 
+||
+|:-:| 
 | [Team](https://github.com/romulusae/romulus/blob/master/index.md#team) | [Features](https://github.com/romulusae/romulus/blob/master/index.md#features) | [Rationale](https://github.com/romulusae/romulus/blob/master/index.md#rationale) |  [Security](https://github.com/romulusae/romulus/blob/master/index.md#security) | [Performances/Implementations](https://github.com/romulusae/romulus/blob/master/index.md#performances-and-implementations) | <!-- cell gets column's alignment -->
 
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the latest v1.3 specifications here.
