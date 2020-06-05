@@ -2,6 +2,10 @@
 
 ---
 
+<font size="+2"> [Team](https://romulusae.github.io/romulus/#team) - Features</font>](https://romulusae.github.io/romulus/#features) - [Rationale](https://romulusae.github.io/romulus/#rationale) - [Security](https://romulusae.github.io/romulus/#security) - [Implementations](https://romulusae.github.io/romulus/#performances-and-implementations) </font>
+
+---
+
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the latest v1.3 specifications here.
 
 Romulus is composed of 3 variants, each using the tweakable block cipher Skinny-128/384+ internally: 
