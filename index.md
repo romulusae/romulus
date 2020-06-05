@@ -1,4 +1,4 @@
-<font size="+5">|</font> [<font size="+2">Team</font>](https://romulusae.github.io/romulus/#team) <font size="+5">|</font> [<font size="+2">Features</font>](https://romulusae.github.io/romulus/#features) <font size="+5">|</font> [<font size="+2">Rationale</font>](https://romulusae.github.io/romulus/#rationale) <font size="+5">|</font>  [<font size="+2">Security</font>](https://romulusae.github.io/romulus/#security) <font size="+5">|</font> [<font size="+2">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) <font size="+5">|</font>
+<font size="+4">|</font> [<font size="+2">Team</font>](https://romulusae.github.io/romulus/#team) <font size="+4">|</font> [<font size="+2">Features</font>](https://romulusae.github.io/romulus/#features) <font size="+4">|</font> [<font size="+2">Rationale</font>](https://romulusae.github.io/romulus/#rationale) <font size="+4">|</font>  [<font size="+2">Security</font>](https://romulusae.github.io/romulus/#security) <font size="+4">|</font> [<font size="+2">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) <font size="+4">|</font>
 
 ---
 
