@@ -17,12 +17,25 @@ You can contact us on [remus-and-romulus@googlegroups.com](mailto:remus-and-romu
 
 # Features
 
-COMING SOON
+Romulus is built on a tweakable block cipher (TBC), which is an extension of classical block cipher introduced by Liskov, Rivest and Wagner at Crypto 2003. Romulus adopts a mode of operation which was designed particularly with lightweight applications in mind. The underlying TBC is Skinny proposed at CRYPTO 2016, which is quite efficient and high security through third-party analysis. As a result, Romulus has the following features: 
+
+- Small operating state size.  The state size is a size of working memory needed to implement the scheme. Romulus's state size is the same as what needed to implement the TBC.  It is essentially the minium as a mode of TBC. 
+
+- Rate-1 operation. The speed of a mode can be measured by rate, which is the number of input blocks processed per primitive call. Romulus-N+ has rate 1, thus it needs an n-bit block TBC call to process n-bit message block, which is optimal. We also remark that, for associated data (AD) blocks it is even more efficient (i.e. it can process (n+t) bits by one TBC call of n-bit block and t-bit tweak).  For Romulus-M+ it has rate below 1 (note: rate being 1 is impossible for MRAE) but is superior to other known TBC modes. 
+
+- Small overhead for short messages. There is no pre-processing TBC call that adds computation overhead. For example, when Romulus receives 1-block AD and 1-block message, the encryption takes only three TBC calls.  
+
+- Highly Reliable Security. The security of Romulus (for N and M variants) is provably reduced to the computational security (TPRP security) of the TBC in the single-key model. This is called Standard Model Security. Unlike those based on (e.g.) random permutation model or ideal-cipher model, there is no gap between the security model and the instantiation. 
+The security for Romulus-N+/H+ is n bits for n=128, and for Romulus-M+ it has n-bit nonce-respecting security and n/2-bit nonce-misusing security. 
+
+- Misuse-resistant security. Romulus-M+ is an MRAE and has a strong resistance against potential nonce repeat by adopting a variant of SIV/SCT structure. Moreover its security is only gracefully degrades depending on the maximum repetition of nonce, from n bits to n/2-bit as mentioned above, which is a desirable feature for MRAE. 
 
 
 # Rationale
 
-COMING SOON
+- Mode. The Romulus-N+ mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) COFB by Chakraborty et al., although the team conducted a thorough revise/simplify to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexer) is removed on hardware. The Romulus-M+ mode is a variant of SIV by Shrimpton and Rogaway, with certain performance boost due to the use of TBC. It reuses Romulus-N+ mode, which enables a combined N+/M+ implementation in a small overhead. 
+
+- Primitive. We adopted Skinny for TBC, which has been published at CRYPTO 2016 and received extensive third-party security analysis (see below). 
 
 
 # Security
@@ -33,7 +46,12 @@ COMING SOON
 
 ## Security Proofs
 
-COMING SOON: N-mode, M-mode, Hash, RUP, 
+- Romulus-N+. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. 
+Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
+
+- Romulus-M+. 
+
+For more details, see our paper (Transactions on Symmetric-key Cryptology 2020). 
 
 ## Third party analysis
 
