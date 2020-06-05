@@ -2,7 +2,7 @@
 
 ---
 
-<font size="+2"> [Team](https://romulusae.github.io/romulus/#team) - [Features](https://romulusae.github.io/romulus/#features) - [Rationale](https://romulusae.github.io/romulus/#rationale) - [Security](https://romulusae.github.io/romulus/#security) - [Implementations](https://romulusae.github.io/romulus/#performances-and-implementations) </font>
+[<font size="+2">Team</font>](https://romulusae.github.io/romulus/#team) - [<font size="+2">Features</font>](https://romulusae.github.io/romulus/#features) - [<font size="+2">Rationale</font>](https://romulusae.github.io/romulus/#rationale) - [<font size="+2">Security</font>](https://romulusae.github.io/romulus/#security) - [<font size="+2">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) 
 
 ---
 
