@@ -21,21 +21,20 @@ Romulus is built on a **tweakable block cipher** (TBC), which is an extension of
 
 Romulus presents several interesting features: 
 
-- **Small operating state size.**  The state size is a size of working memory needed to implement the scheme. Romulus's state size is the same as what needed to implement the TBC.  It is essentially the minium as a mode of TBC. 
+- **Small operating state size.**  The state size refers to the amount of working memory needed to implement the scheme. Romulus's state size is the same as what is needed to implement the TBC alone. It is essentially the minimum as a TBC-based mode. 
 
-- **Rate-1 operation.** The speed of a mode can be measured by rate, which is the number of input blocks processed per primitive call. Romulus-N+ has rate 1, thus it needs an n-bit block TBC call to process n-bit message block, which is optimal. We also remark that, for associated data (AD) blocks it is even more efficient (i.e. it can process (n+t) bits by one TBC call of n-bit block and t-bit tweak).  For Romulus-M+ it has rate below 1 (note: rate being 1 is impossible for MRAE) but is superior to other known TBC modes. 
+- **Rate-1 operation.** The speed of an operating mode can be measured by the rate, which is the number of input blocks processed per internal primitive call. Romulus-N+ has rate 1, thus it needs an n-bit block TBC call to process an n-bit message block, which is optimal. We also remark that, for associated data (AD) blocks it is even more efficient (i.e. it can process (n+t) bits by one TBC call of n-bit block and t-bit tweak). For Romulus-M+ it has rate below 1 (note: rate of 1 is impossible for MRAE secrutiy notion) but is superior to other known TBC modes. 
 
 - **Small overhead for short messages.** There is no pre-processing TBC call that adds computation overhead. For example, when Romulus receives 1-block AD and 1-block message, the encryption takes only three TBC calls.  
 
-- **Highly Reliable Security.** The security of Romulus (for N and M variants) is provably reduced to the computational security (TPRP security) of the TBC in the single-key model. This is called Standard Model Security. Unlike those based on (e.g.) random permutation model or ideal-cipher model, there is no gap between the security model and the instantiation. 
-The security for Romulus-N+/H+ is n bits for n=128, and for Romulus-M+ it has n-bit nonce-respecting security and n/2-bit nonce-misusing security. 
+- **Highly Reliable Security.** The security of Romulus (for N and M variants) is provably reduced to the computational security (TPRP security) of the TBC in the single-key model. This is called Standard Model Security. Unlike those based on (e.g.) random permutation model or ideal-cipher model, there is no gap between the security model and the instantiation. The security for Romulus-N+/H+ is n bits for n=128, and for Romulus-M+ it has n-bit nonce-respecting security and n/2-bit nonce-misuse security. 
 
-- **Misuse-resistant security.** Romulus-M+ is an MRAE and has a strong resistance against potential nonce repeat by adopting a variant of SIV/SCT structure. Moreover its security is only gracefully degrades depending on the maximum repetition of nonce, from n bits to n/2-bit as mentioned above, which is a desirable feature for MRAE. 
+- **Misuse-resistant security.** Romulus-M+ is an MRAE and has a strong resistance against potential nonce repeat by adopting a variant of SIV/SCT structure. Moreover its security only gracefully degrades depending on the maximum repetition of nonce, from n bits to n/2-bit as mentioned above, which is a desirable feature for MRAE. 
 
 
 # Rationale
 
-- **Mode.* The Romulus-N+ mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) COFB by Chakraborty et al., although the team conducted a thorough revise/simplify to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexer) is removed on hardware. The Romulus-M+ mode is a variant of SIV by Shrimpton and Rogaway, with certain performance boost due to the use of TBC. It reuses Romulus-N+ mode, which enables a combined N+/M+ implementation in a small overhead. 
+- **Mode.** The Romulus-N+ mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) [COFB](https://eprint.iacr.org/2017/649.pdf) by Chakraborty et al., although the team conducted a thorough revising/simplification to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexers) is removed in hardware. The Romulus-M+ mode is a variant of [SIV](https://web.cs.ucdavis.edu/~rogaway/papers/siv.pdf) by Shrimpton and Rogaway, with certain performance boosts due to the use of TBC. It reuses Romulus-N+ mode, which enables a combined N+/M+ implementation with a small overhead. 
 
 - **Primitive.** We adopted Skinny for TBC, which has been published at CRYPTO 2016 and received extensive third-party security analysis (see below). 
 
@@ -48,12 +47,11 @@ COMING SOON
 
 ## Security Proofs
 
-- Romulus-N+. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. 
-Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
+- Romulus-N+. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
 
 - Romulus-M+. 
 
-For more details, see our paper (Transactions on Symmetric-key Cryptology 2020). 
+For more details, see [our Transactions on Symmetric-key Cryptology 2020 paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131). 
 
 ## Third party analysis
 
@@ -63,19 +61,19 @@ One can observe that the Skinny tweakable block ciphers went through a lot of th
 
 Indeed, all these attacks have very high complexity, much more than 2<sup>200</sup> in computational complexity and sometimes up to almost 2<sup>384</sup>, and only work in the related-tweakey model where differences need to also be inserted in the tweak and/or key input. In the single-key model, the best known attacks against Skinny-128/384 covers 22 rounds ([Tolba et al. 2016](https://eprint.iacr.org/2016/1115.pdf), [Shi et al. 2018](https://eprint.iacr.org/2018/813.pdf), [Chen et al. 2019](https://link.springer.com/chapter/10.1007/978-3-030-41579-2_14)), again all these attacks having a very high computational complexity. This represents a much larger security margin when compared to other (tweakable) block ciphers, or to most permutation-based AEAD designs, where non-random behaviour can be usually exhibited for the full-round internal primitive with a complexity lower than the targeted security parameter of the whole scheme. 
 
-For this reason, the Skinny team decided to propose a new variant of Skinny-128/384 (named Skinny-128/384+) by reducing its number of rounds from 56 to 40, to give a security margin of around 30\% (in the worst-case related-tweakey scenario, without even excluding attacks with complexity much higher than 2<sup>128</sup>), which remains a very large security margin. This is the internal primitive we use in Romulus submission v1.3, in contrary to v1.2 which was using Skinny-128/384. More precisely, ROMULUS-N+ and ROMULUS-M+ share the exact same specifications as ROMULUS-N1 and ROMULUS-M1 (from version 1.2), except that the number of Skinny-128/384 rounds is reduced from 56 to 40. The security claims remained exactly the same, while they are expected to be around 1.4x faster than their counterparts for the same area cost. To simplify the submission, we decided to only keep these Skinny-128/384-based variants and remove the ones based on Skinny-128/256 from v1.2.
+For this reason, the Skinny team decided to propose a new variant of Skinny-128/384 (named Skinny-128/384+) by reducing its number of rounds from 56 to 40, to give a security margin of around 30\% (in the worst-case related-tweakey scenario, without even excluding attacks with complexity much higher than 2<sup>128</sup>), which remains a very large security margin. This is the internal primitive we use in Romulus submission v1.3, in contrary to v1.2 which was using Skinny-128/384. More precisely, Romulus-N+ and Romulus-M+ share the exact same specifications as Romulus-N1 and Romulus-M1 (from version 1.2), except that the number of Skinny-128/384 rounds is reduced from 56 to 40. The security claims remained exactly the same, while they are expected to be around 1.4x faster than their counterparts for the same area cost. To simplify the submission, we decided to only keep these Skinny-128/384-based variants and remove the ones based on Skinny-128/256 from v1.2.
 
 
 # Performances and implementations
 
 ## Hardware
 
-COMING SOON
+You can find VHDL implementation of Romulus in [the hardware implementations section of our Github repo](https://github.com/romulusae/romulus/tree/master/Implementations/hardware). 
 
 ## Software
  
 You can find reference implementations of Romulus in C and Python, together with test vectors, in [our Github repo](https://github.com/romulusae/romulus).
 
 You can find optimized implementations of Romulus in the following Github repos: 
-- [Alexandre Adomnicai](https://github.com/aadomn/skinny) - Cortex-M optimised implementations
+- [Alexandre Adomnicai](https://github.com/aadomn/skinny) - Cortex-M and 32-bit optimised implementations
 - [Rhys Weatherley](https://github.com/rweather/lightweight-crypto) - Cortex-M and AVR optimised implementations 
