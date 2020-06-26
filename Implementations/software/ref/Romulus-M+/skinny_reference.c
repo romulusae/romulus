@@ -19,7 +19,7 @@
 //Skinny-128-128: 40 rounds
 //Skinny-128-256: 48 rounds
 //Skinny-128-384: 56 rounds
-Skinny-128-384+: 40 rounds
+//Skinny-128-384+: 40 rounds
 int versions[6][3]={{64,64,32},{64,128,36},{64,192,40},{128,128,40},{128,256,48},{128,384,56},{128,384,40}};
 
 // Packing of data is done as follows (state[i][j] stands for row i and column j):
