@@ -1,0 +1,31 @@
+HDL Language: Mixed: Verilog and VHDL
+
+File name           | Used  | Release number | Functional
+                    |       |                | modifications
+                    | (Y/N) |                | (Y/N)
+===================================================================
+NIST_LWAPI_pkg.vhd  | N     |                |
+StepDownCountLd.vhd | N     |                |
+data_piso.vhd       | N     |                |
+data_sipo.vhd       | N     |                |
+key_piso.vhd        | N     |                |
+PreProcessor.vhd    | N     |                |
+PostProcessor.vhd   | N     |                |
+fwft_fifo.vhd       | N     |                |
+LWC.vhd             | N     |                |
+
+Supported API segment types:
+
+Input to encryption:    ad, npub, data, tag
+Output from encryption: data, tag
+Input to decryption:    ad, npub, data, tag
+Output from decryption: data, status
+
+Minimum compliance criteria:
+No deviations.
+
+Interface:
+No deviation
+
+Protocol:
+No deviation
