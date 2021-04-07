@@ -6,12 +6,12 @@
 
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the latest v1.3 specifications here.
 
-Romulus is composed of 3 variants, each using the tweakable block cipher Skinny-128/384+ internally: 
-- Romulus-N, a nonce-based AEAD (NAE)
-- Romulus-M, a nonce misuse-resistant AEAD (MRAE)
-- Romulus-H, a hash function
+Romulus is composed of 3 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
+- Romulus-N, a nonce-based AEAD (NAE)  
+- Romulus-M, a nonce misuse-resistant AEAD (MRAE)  
+- Romulus-H, a hash function  
 
-In addition, we propose two leakage-resilient AEAD variants: Romulus-LR and Romulus-TEDT.
+In addition, we propose two leakage-resilient AEAD variants: Romulus-LR and Romulus-TEDT.  
 
 # Team
 
