@@ -1,4 +1,8 @@
+[<font size="+2.5">Team</font>](https://romulusae.github.io/romulus/#team) &nbsp; - - &nbsp; [<font size="+2.5">Features</font>](https://romulusae.github.io/romulus/#features) &nbsp; - - &nbsp; [<font size="+2.5">Rationale</font>](https://romulusae.github.io/romulus/#rationale) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/#security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) 
 
+---
+
+&nbsp;   
 
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography). You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the latest v1.3 specifications here.
 
