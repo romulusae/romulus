@@ -1,2 +1,3 @@
-theme: jekyll-theme-slate
 title: Romulus Authenticated Encryption 
+description: Webpage for the Romulus Authenticated Encryption and Hash Function Suite
+theme: jekyll-theme-slate
