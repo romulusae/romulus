@@ -1,7 +1,0 @@
-Maximum clock frequency: 73.393 MHz
-LUTs: 1103
-FFs: 494
-Slices: 395
-BRAMS: 0
-DSP Slices: 0
-

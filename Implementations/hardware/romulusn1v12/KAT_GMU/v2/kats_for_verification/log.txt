@@ -1,5 +1,0 @@
-[Log] == Verifying msg ID #1 with key ID #1 for ENC
-[Log]     Expected: 52 Received: 52 Matched!
-[Log]     Expected: 00 Received: 00 Matched!
-[Log]     Expected: 00 Received: 00 Matched!
-[Log]     Expected: 00 Received: 00 Matched!
