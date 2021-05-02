@@ -109,9 +109,9 @@ def skinny_enc(plaintext, tweakey, version):
         for j in range(TAB_TWEAK_LENGTH[version]): tk[i+1][j] = tk[i][j-j%16+PT[j%16]]
         for j in range(8): 
             if version in [1,2]: tk[i+1][j+16] = LFSR_4_TK2[tk[i+1][j+16]]
-            elif version in [4,5]: tk[i+1][j+16] = LFSR_8_TK2[tk[i+1][j+16]]
+            elif version in [4,5,6]: tk[i+1][j+16] = LFSR_8_TK2[tk[i+1][j+16]]
             if version in [2]: tk[i+1][j+32] = LFSR_4_TK3[tk[i+1][j+32]]
-            elif version in [5]: tk[i+1][j+32] = LFSR_8_TK3[tk[i+1][j+32]]
+            elif version in [5,6]: tk[i+1][j+32] = LFSR_8_TK3[tk[i+1][j+32]]
 
     for i in range(TAB_ROUNDS[version]):
         
