@@ -83,7 +83,7 @@ For this reason, the Skinny team decided to propose a new variant of Skinny-128/
 
 ## Hardware
 
-You can find VHDL implementation of Romulus in [the hardware implementations section of our Github repo](https://github.com/romulusae/romulus/tree/master/Implementations/hardware). 
+You can find VHDL implementation of Romulus in the hardware implementations section of [our Github repo](https://github.com/romulusae/romulus). TODO list other implementations ?
 
 ## Software
  
