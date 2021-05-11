@@ -9,10 +9,8 @@ Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
 - Romulus-N, a nonce-based AEAD (NAE)  
 - Romulus-M, a nonce misuse-resistant AEAD (MRAE)  
-- Romulus-TEDT, a leakage-resilient AEAD 
+- Romulus-T, a leakage-resilient AEAD 
 - Romulus-H, a hash function  
-
-In addition, we propose two leakage-resilient AEAD variants: Romulus-LR and Romulus-TEDT.
 
 # Team
 
@@ -41,11 +39,11 @@ Romulus presents several interesting features:
 
 - **Misuse-resistant security.** Romulus-M is an MRAE and has a strong resistance against potential nonce repeat by adopting a variant of SIV/SCT structure. Moreover its security only gracefully degrades depending on the maximum repetition of nonce, from n bits to n/2-bit as mentioned above, which is a desirable feature for MRAE. 
 
-- **leakage resiliance.** Romulus-TEDT is an AEAD which offers full leakage-resistance: it limits the exploitability of physical leakages via side-channel attacks, even if these leakages happen during every message encryption and decryption operation. It is based on the provably secure TBC-based [TEDT construction](https://eprint.iacr.org/2019/137), which offers what is currently considered as the highest possible security notions in the presence of leakage, namely beyond birthday bound CIML2 and security against Chosen Ciphertext Attacks with nonce-misuse-resilience and Leakage using levelled implementations (CCAmL2). In addition, it provides beyond birthday bound black-box and leakage-resilient security guarantees. TEDT leads to an energy-efficient leakage-resilient solution as two TBCs are implemented: the first one needs strong and energy demanding protections against side-channel attacks but is used in a limited way, while the other only requires weak and energy-efficient protections and performs the bulk of the computation.
+- **leakage resiliance.** Romulus-T is an AEAD which offers full leakage-resistance: it limits the exploitability of physical leakages via side-channel attacks, even if these leakages happen during every message encryption and decryption operation. It is based on the provably secure TBC-based [TEDT construction](https://eprint.iacr.org/2019/137), which offers what is currently considered as the highest possible security notions in the presence of leakage, namely beyond birthday bound CIML2 and security against Chosen Ciphertext Attacks with nonce-misuse-resilience and Leakage using levelled implementations (CCAmL2). In addition, it provides beyond birthday bound black-box and leakage-resilient security guarantees. TEDT leads to an energy-efficient leakage-resilient solution as two TBCs are implemented: the first one needs strong and energy demanding protections against side-channel attacks but is used in a limited way, while the other only requires weak and energy-efficient protections and performs the bulk of the computation.
 
 # Rationale
 
-- **Mode.** The Romulus-N mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) [COFB](https://eprint.iacr.org/2017/649.pdf) by Chakraborty et al., although the team conducted a thorough revising/simplification to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexers) is removed in hardware. The Romulus-M mode is a variant of [SIV](https://web.cs.ucdavis.edu/~rogaway/papers/siv.pdf) by Shrimpton and Rogaway, with certain performance boosts due to the use of TBC. It reuses Romulus-N mode, which enables a combined N/M implementation with a small overhead. Romulus-TEDT is the [TEDT construction](https://eprint.iacr.org/2019/137) from Berti et al. adapted to use Romulus-H as internal hash function. The Romulus-H is the [MDPH construction](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4) from Naito, which consists of Hirose’s well known [Double-Block-Length (DBL) compression function](https://www.iacr.org/archive/fse2006/40470213/40470213.pdf) plugged into the Merkle-Damgard with Permutation ([MDP](https://www.iacr.org/archive/asiacrypt2007/48330111/48330111.pdf)) domain extender.
+- **Mode.** The Romulus-N mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) [COFB](https://eprint.iacr.org/2017/649.pdf) by Chakraborty et al., although the team conducted a thorough revising/simplification to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexers) is removed in hardware. The Romulus-M mode is a variant of [SIV](https://web.cs.ucdavis.edu/~rogaway/papers/siv.pdf) by Shrimpton and Rogaway, with certain performance boosts due to the use of TBC. It reuses Romulus-N mode, which enables a combined N/M implementation with a small overhead. Romulus-T is the [TEDT construction](https://eprint.iacr.org/2019/137) from Berti et al. adapted to use Romulus-H as internal hash function. The Romulus-H is the [MDPH construction](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4) from Naito, which consists of Hirose’s well known [Double-Block-Length (DBL) compression function](https://www.iacr.org/archive/fse2006/40470213/40470213.pdf) plugged into the Merkle-Damgard with Permutation ([MDP](https://www.iacr.org/archive/asiacrypt2007/48330111/48330111.pdf)) domain extender.
 
 - **Primitive.** We adopted Skinny for TBC, which has been published at CRYPTO 2016 and received extensive third-party security analysis (see below). More precicely, we use Skinny-128/384+ as only internal primitive, which consist of Skinny-128/384 with the number of rounds reduced from 56 to 40 (Skinny-128/384 having an extremly large security margin).
 
@@ -62,9 +60,9 @@ COMING SOON
 
 - Romulus-M. TODO
 
-- Romulus-TEDT. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). TODO
+- Romulus-T. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). TODO
 
-- Romulus-H. Security proofs of the TEDT mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). TODO
+- Romulus-H. Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). TODO
 
 For more details, see [our Transactions on Symmetric-key Cryptology 2020 paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131) or [our slides at the NIST LWC Worksop 2019](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf).
 
