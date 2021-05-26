@@ -61,6 +61,12 @@ factors are neglected. See submission document for the interpretations of these 
 | Romulus-M      | n | n | n/2 ∼ n | n/2 ∼ n |   
 | Romulus-T     | n − log2(n) | n − log2(n) | - |  n − log2(n) |   
 
+Security claims of Romulus-H. In the table, n = 128 and small constant factors are neglected.
+
+| Member        | Collision           | Preimage   | 2nd Preimage |   
+| ------------- |:-------------:|:-------------:|:-------------:|   
+| Romulus-H      | n − log2(n) | n − log2(n) | n − log2(n) |   
+
 
 ## Security Proofs
 
