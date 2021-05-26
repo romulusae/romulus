@@ -1,3 +1,9 @@
+[<font size="+2.5">Team</font>](https://romulusae.github.io/romulus/#team) &nbsp; - - &nbsp; [<font size="+2.5">Features</font>](https://romulusae.github.io/romulus/#features) &nbsp; - - &nbsp; [<font size="+2.5">Rationale</font>](https://romulusae.github.io/romulus/#rationale) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/#security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) 
+
+---
+
+&nbsp;   
+
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the latest v1.3 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.3.pdf) (and the previous v1.2 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.2.pdf)).
 
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
@@ -97,5 +103,4 @@ You can find reference implementations of Romulus in C and Python, together with
 
 You can find optimized implementations of Romulus in the following Github repos: 
 - [Alexandre Adomnicai](https://github.com/aadomn/skinny) - Cortex-M and 32-bit optimised implementations
-- [Rhys Weatherley](https://github.com/rweather/lightweight-crypto) - Cortex-M and AVR optimised implementations
-
+- [Rhys Weatherley](https://github.com/rweather/lightweight-crypto) - Cortex-M and AVR optimised implementations 
