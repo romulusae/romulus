@@ -53,7 +53,7 @@ Romulus presents several interesting features:
 ## Claims
 
 | Member        | NR-Priv           | NR-Auth   | NM-Priv | NM-Auth |   
-| ------------- |:-------------:| -----:|   
+| ------------- |:-------------:|:-------------:|:-------------:|:-------------:|  
 | Romulus-N      | n | n | - | - |   
 | Romulus-M      | n | n | n/2 ∼ n | n/2 ∼ n |   
 | Romulus-T     | n − log2 n | n − log2 n |  – |  n − log2 n |   
@@ -86,7 +86,7 @@ For this reason, the Skinny team decided to propose a new variant of Skinny-128/
 
 ## Hardware
 
-You can find VHDL implementation of Romulus in the hardware implementations section of [our Github repo](https://github.com/romulusae/romulus). TODO list other implementations ?
+You can find VHDL implementation of Romulus in the hardware implementations section of [our Github repo](https://github.com/romulusae/romulus). 
 
 ## Software
  
