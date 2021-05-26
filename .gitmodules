@@ -1,3 +1,3 @@
 [submodule "Implementations/hardware"]
 	path = Implementations/hardware
-	url = https://github.com/romulusae/romulus-hardware.git
+	url = https://github.com/romulusae/romulus-hardware
