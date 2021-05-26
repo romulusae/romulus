@@ -52,11 +52,14 @@ Romulus presents several interesting features:
 
 ## Claims
 
+Security claims of Romulus-N, Romulus-M and Romulus-T. NR denotes Nonce-Respecting adversary and NM denotes Nonce-Misusing adversary. In the table, n = 128 and small constant
+factors are neglected. See submission document for the interpretations of these numbers.
+
 | Member        | NR-Priv           | NR-Auth   | NM-Priv | NM-Auth |   
 | ------------- |:-------------:|:-------------:|:-------------:|:-------------:|  
 | Romulus-N      | n | n | - | - |   
 | Romulus-M      | n | n | n/2 ∼ n | n/2 ∼ n |   
-| Romulus-T     | n − log2 n | n − log2 n | - |  n − log2 n |   
+| Romulus-T     | n − log2(n) | n − log2(n) | - |  n − log2(n) |   
 
 
 ## Security Proofs
