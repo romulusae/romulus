@@ -5,7 +5,7 @@
 &nbsp;   
 
 Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the latest v1.3 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.3.pdf) (and the previous v1.2 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.2.pdf)). You can also check: 
-* [our Transactions on Symmetric-key Cryptology 2020 paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131)
+* our Transactions on Symmetric-key Cryptology 2020 [paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131)
 * our NIST LWC Worksop 2020 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2020/documents/papers/new-results-romulus-lwc2020.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/new-results-on-romulus/images-media/session-2-peyrin-new-results-rolmulus.pdf)
 * our NIST LWC Worksop 2019 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2019/documents/papers/updates-on-romulus-remus-tgif-lwc2019.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf)
 
