@@ -4,7 +4,7 @@
 
 &nbsp;   
 
-Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the v1.2 specifications [here](https://romulusae.github.io/romulus/Romulus.pdf) and the latest v1.3 specifications here.
+Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the latest v1.3 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.3.pdf) (and the previous v1.2 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.2.pdf)).
 
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
 - Romulus-N, a nonce-based AEAD (NAE)  
@@ -33,7 +33,7 @@ Romulus presents several interesting features:
 
 - **Rate-1 operation.** The speed of an operating mode can be measured by the rate, which is the number of input blocks processed per internal primitive call. Romulus-N has rate 1, thus it needs an n-bit block TBC call to process an n-bit message block, which is optimal. We also remark that, for associated data (AD) blocks it is even more efficient (i.e. it can process (n+t) bits by one TBC call of n-bit block and t-bit tweak). For Romulus-M it has rate below 1 (note: rate of 1 is impossible for MRAE secrutiy notion) but is superior to other known TBC modes. 
 
-- **Small overhead for short messages.** There is no pre-processing TBC call that adds computation overhead. For example, when Romulus receives 1-block AD and 1-block message, the encryption takes only three TBC calls.  
+- **Small overhead for short messages.** There is no pre-processing TBC call that adds computation overhead. For example, when Romulus-N receives 1-block AD and 1-block message, the encryption takes only three TBC calls.  
 
 - **Highly Reliable Security.** The security of Romulus (for N and M variants) is provably reduced to the computational security (TPRP security) of the TBC in the single-key model. This is called Standard Model Security. Unlike those based on (e.g.) random permutation model or ideal-cipher model, there is no gap between the security model and the instantiation. The security for Romulus-N/H is n bits for n=128, and for Romulus-M it has n-bit nonce-respecting security and n/2-bit nonce-misuse security. 
 
@@ -43,7 +43,7 @@ Romulus presents several interesting features:
 
 # Rationale
 
-- **Mode.** The Romulus-N mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) [COFB](https://eprint.iacr.org/2017/649.pdf) by Chakraborty et al., although the team conducted a thorough revising/simplification to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexers) is removed in hardware. The Romulus-M mode is a variant of [SIV](https://web.cs.ucdavis.edu/~rogaway/papers/siv.pdf) by Shrimpton and Rogaway, with certain performance boosts due to the use of TBC. It reuses Romulus-N mode, which enables a combined N/M implementation with a small overhead. Romulus-T is the [TEDT construction](https://eprint.iacr.org/2019/137) from Berti et al. adapted to use Romulus-H as internal hash function. The Romulus-H is the [MDPH construction](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4) from Naito, which consists of Hirose’s well known [Double-Block-Length (DBL) compression function](https://www.iacr.org/archive/fse2006/40470213/40470213.pdf) plugged into the Merkle-Damgard with Permutation ([MDP](https://www.iacr.org/archive/asiacrypt2007/48330111/48330111.pdf)) domain extender.
+- **Mode.** The Romulus-N mode is designed to simultaneously achieve rate 1 and a small state size. It is based on (a TBC variant of) [COFB](https://eprint.iacr.org/2017/649.pdf) by Chakraborty et al., although the team conducted a thorough revising/simplification to optimize its performance. In particular the algorithm is streamlined so that any redundant logic (e.g. multiplexers) is removed in hardware. The Romulus-M mode is a variant of [SIV](https://web.cs.ucdavis.edu/~rogaway/papers/siv.pdf) by Shrimpton and Rogaway, with certain performance boosts due to the use of TBC. It reuses Romulus-N mode, which enables a combined N/M implementation with a small overhead. Romulus-T is an update of the [TEDT construction](https://eprint.iacr.org/2019/137) from Berti et al., adapted to use Romulus-H as internal hash function. The Romulus-H is the [MDPH construction](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4) from Naito, which consists of Hirose’s well known [Double-Block-Length (DBL) compression function](https://www.iacr.org/archive/fse2006/40470213/40470213.pdf) plugged into the Merkle-Damgard with Permutation ([MDP](https://www.iacr.org/archive/asiacrypt2007/48330111/48330111.pdf)) domain extender.
 
 - **Primitive.** We adopted Skinny for TBC, which has been published at CRYPTO 2016 and received extensive third-party security analysis (see below). More precicely, we use Skinny-128/384+ as only internal primitive, which consist of Skinny-128/384 with the number of rounds reduced from 56 to 40 (Skinny-128/384 having an extremly large security margin).
 
@@ -52,7 +52,12 @@ Romulus presents several interesting features:
 
 ## Claims
 
-COMING SOON
+| Member        | NR-Priv           | NR-Auth   | NM-Priv | NM-Auth |
+| ------------- |:-------------:| -----:|
+| Romulus-N      | n | n | - | - |
+| Romulus-M      | n | n | n/2 ∼ n | n/2 ∼ n |
+| Romulus-T     | n − log2 n | n − log2 n |  – |  n − log2 n |
+
 
 ## Security Proofs
 
