@@ -56,7 +56,7 @@ Romulus presents several interesting features:
 | ------------- |:-------------:|:-------------:|:-------------:|:-------------:|  
 | Romulus-N      | n | n | - | - |   
 | Romulus-M      | n | n | n/2 ∼ n | n/2 ∼ n |   
-| Romulus-T     | n − log2 n | n − log2 n |  – |  n − log2 n |   
+| Romulus-T     | n − log2 n | n − log2 n | - |  n − log2 n |   
 
 
 ## Security Proofs
