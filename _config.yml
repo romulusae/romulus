@@ -1,7 +1,2 @@
-title: Romulus Authenticated Encryption 
-description: Webpage for the Romulus Authenticated Encryption and Hash Function Suite
-show_downloads: true
-google_analytics:
 theme: jekyll-theme-slate
-markdown: kramdown
-encoding: UTF-8
+title: Romulus Authenticated Encryption 
