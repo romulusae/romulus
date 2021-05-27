@@ -10,6 +10,12 @@ Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-
 - Romulus-T, a leakage-resilient AEAD 
 - Romulus-H, a hash function  
 
+
+![alt text](https://romulusae.github.io/romulus/docs/modeN_simplified.png "Romulus-N")
+![alt text](https://romulusae.github.io/romulus/docs/modeM_simplified.png "Romulus-M")
+![alt text](https://romulusae.github.io/romulus/docs/modeT.png "Romulus-T")
+![alt text](https://romulusae.github.io/romulus/docs/modeH.png "Romulus-H")
+
 # Features
 
 Romulus is built on a **tweakable block cipher** (TBC), which is an extension of classical block cipher introduced by Liskov, Rivest and Wagner at Crypto 2003. Romulus adopts a mode of operation which was designed particularly with lightweight applications in mind. The underlying TBC is [Skinny](https://eprint.iacr.org/2016/660.pdf) proposed at CRYPTO 2016, a high security primitive specifically designed to be very efficient in constrained environments, and which received an important amount of third-party analysis since its publication. 
