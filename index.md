@@ -1,10 +1,10 @@
-[<font size="+2.5">Team</font>](https://romulusae.github.io/romulus/#team) &nbsp; - - &nbsp; [<font size="+2.5">Features</font>](https://romulusae.github.io/romulus/#features) &nbsp; - - &nbsp; [<font size="+2.5">Rationale</font>](https://romulusae.github.io/romulus/#rationale) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/#security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/#performances-and-implementations) 
+[<font size="+2.5">Home</font>](https://romulusae.github.io/romulus/) &nbsp; - - &nbsp; [<font size="+2.5">Specs/Features</font>](https://romulusae.github.io/romulus/specs) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/impl)  &nbsp; - - &nbsp; [<font size="+2.5">Contact</font>](https://romulusae.github.io/romulus/contact) 
 
 ---
 
 &nbsp;   
 
-Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the latest v1.3 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.3.pdf) (and the previous v1.2 specifications [here](https://github.com/romulusae/romulus/blob/master/Romulusv1.2.pdf)). You can also check: 
+Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.gov/projects/lightweight-cryptography), currently in the final round. You can find the latest v1.3 specifications [here](https://github.com/romulusae/romulus/blob/master/docs/Romulusv1.3.pdf) (and the previous v1.2 specifications [here](https://github.com/romulusae/romulus/blob/master/docs/Romulusv1.2.pdf)). You can also check: 
 * our Transactions on Symmetric-key Cryptology 2020 [paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131) and corresponding [talk](https://www.youtube.com/watch?v=3ML5g8tnP6A&ab_channel=TheIACR) at FSE 2020
 * our NIST LWC Worksop 2020 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2020/documents/papers/new-results-romulus-lwc2020.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/new-results-on-romulus/images-media/session-2-peyrin-new-results-rolmulus.pdf)
 * our NIST LWC Worksop 2019 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2019/documents/papers/updates-on-romulus-remus-tgif-lwc2019.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf)
@@ -15,15 +15,7 @@ Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-
 - Romulus-T, a leakage-resilient AEAD 
 - Romulus-H, a hash function  
 
-# Team
 
-- **[Chun Guo](https://faculty.sdu.edu.cn/chun_guo_sk/en/index.htm)**, Shandong University, China
-- **[Tetsu Iwata](http://www.nuee.nagoya-u.ac.jp/labs/tiwata/)**, Nagoya University, Japan
-- **[Mustafa Khairallah](https://www.mustafa-khairallah.com/)**, Nanyang Technological University, Singapore
-- **[Kazuhiko Minematsu](https://www.nec.com/en/global/rd/people/kazuhiko_minematsu.html)**, NEC, Japan
-- **[Thomas Peyrin](https://sites.google.com/site/thomaspeyrin/)**, Nanyang Technological University, Singapore
-
-You can contact us on [remus-and-romulus@googlegroups.com](mailto:remus-and-romulus@googlegroups.com)
 
 
 # Features
@@ -93,16 +85,3 @@ Indeed, all these attacks have very high complexity, much more than 2<sup>200</s
 For this reason, the Skinny team decided to propose a new variant of Skinny-128/384 (named Skinny-128/384+) by reducing its number of rounds from 56 to 40, to give a security margin of around 30% (in the worst-case related-tweakey scenario, without even excluding attacks with complexity much higher than 2<sup>128</sup>), which remains a very large security margin. This is the internal primitive we use in Romulus submission v1.3, in contrary to v1.2 which was using Skinny-128/384. More precisely, Romulus-N and Romulus-M share the exact same specifications as Romulus-N1 and Romulus-M1 (from version 1.2), except that the number of Skinny-128/384 rounds is reduced from 56 to 40. The security claims remained exactly the same, while they are expected to be around 1.4x faster than their counterparts for the same area cost. To simplify the submission, we decided to only keep these Skinny-128/384-based variants and remove the ones based on Skinny-128/256 from v1.2.
 
 
-# Performances and implementations
-
-## Hardware
-
-You can find RTL implementation of Romulus in the hardware implementations section of [our Github repo](https://github.com/romulusae/romulus). 
-
-## Software
- 
-You can find reference implementations of Romulus in C and Python, together with test vectors, in [our Github repo](https://github.com/romulusae/romulus).
-
-You can find optimized implementations of Romulus in the following Github repos: 
-- [Alexandre Adomnicai](https://github.com/aadomn/skinny) - Cortex-M and 32-bit optimised implementations
-- [Rhys Weatherley](https://github.com/rweather/lightweight-crypto) - Cortex-M and AVR optimised implementations 
