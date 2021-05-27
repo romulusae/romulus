@@ -1,8 +1,13 @@
 [<font size="+2.5">Home</font>](https://romulusae.github.io/romulus/) &nbsp; - - &nbsp; [<font size="+2.5">Specs/Features</font>](https://romulusae.github.io/romulus/specs) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/impl)  &nbsp; - - &nbsp; [<font size="+2.5">Contact</font>](https://romulusae.github.io/romulus/contact) 
 
+&nbsp; &emsp; &emsp; [<font size="-1.0" color="green">Specifications</font>](https://romulusae.github.io/romulus/specs#specifications) &nbsp; - - &nbsp; [<font size="-1.0" color="green">Features</font>](https://romulusae.github.io/romulus/specs#features) &nbsp; - - &nbsp; [<font size="-1.0" color="green">Rationale</font>](https://romulusae.github.io/romulus/specs#rationale) 
+
+
 ---
 
 &nbsp;   
+
+# Specifications
 
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
 - Romulus-N, a nonce-based AEAD (NAE)  
