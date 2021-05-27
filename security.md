@@ -1,12 +1,12 @@
-[<font size="+2.5">Home</font>](https://romulusae.github.io/romulus/) &nbsp; - - &nbsp; [<font size="+2.5">Specs/Features</font>](https://romulusae.github.io/romulus/specs) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/impl)  &nbsp; - - &nbsp; [<font size="+2.5">Contact</font>](https://romulusae.github.io/romulus/contact) 
+[<font size="+2.5">Home</font>](https://romulusae.github.io/romulus/) &nbsp; - - &nbsp; [<font size="+2.5">Specs/Features</font>](https://romulusae.github.io/romulus/specs) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/impl)  &nbsp; - - &nbsp; [<font size="+2.5">Contact</font>](https://romulusae.github.io/romulus/contact)   
+
+[<font size="+2.0">Security Claims</font>](https://romulusae.github.io/romulus/security#security-claims) &nbsp; - - &nbsp; [<font size="+2.0">Security Proofs</font>](https://romulusae.github.io/romulus/security#security-proofs) &nbsp; - - &nbsp; [<font size="+2.0">Third party analysis</font>](https://romulusae.github.io/romulus/security#third-party-analysis) &nbsp; - - &nbsp;
 
 ---
 
 &nbsp;   
 
-# Security
-
-## Claims
+# Security Claims
 
 Security claims of Romulus-N, Romulus-M and Romulus-T. NR denotes Nonce-Respecting adversary and NM denotes Nonce-Misusing adversary. In the table, n = 128 and small constant
 factors are neglected. See submission document for the interpretations of these numbers.
@@ -24,7 +24,7 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 | Romulus-H      | n − log2(n) | n − log2(n) | n − log2(n) |   
 
 
-## Security Proofs
+# Security Proofs
 
 - Romulus-N. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
 
@@ -35,7 +35,7 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 - Romulus-H. Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). TODO
 
 
-## Third party analysis
+# Third party analysis
 
 A partial list of third party analysis of the Skinny tweakable block ciphers is present [on the Skinny website](https://sites.google.com/site/skinnycipher/security). 
 
