@@ -1,4 +1,6 @@
+<p align="center">
 [<font size="+2.5">Home</font>](https://romulusae.github.io/romulus/) &nbsp; - - &nbsp; [<font size="+2.5">Specs/Features</font>](https://romulusae.github.io/romulus/specs) &nbsp; - - &nbsp; [<font size="+2.5">Security</font>](https://romulusae.github.io/romulus/security) &nbsp; - - &nbsp; [<font size="+2.5">Implementations</font>](https://romulusae.github.io/romulus/impl)  &nbsp; - - &nbsp; [<font size="+2.5">Contact</font>](https://romulusae.github.io/romulus/contact) 
+</p>
 
 &emsp; &emsp; [<font size="-1.0" color="green">Specifications</font>](https://romulusae.github.io/romulus/specs#specifications) &nbsp; - - &nbsp; [<font size="-1.0" color="green">Features</font>](https://romulusae.github.io/romulus/specs#features) &nbsp; - - &nbsp; [<font size="-1.0" color="green">Rationale</font>](https://romulusae.github.io/romulus/specs#rationale) 
 
@@ -6,10 +8,6 @@
 ---
 
 &nbsp;   
-
-<p align="center">
-  to
-</p>
 
 # Specifications
 
