@@ -17,9 +17,16 @@ Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-
 
 
 ![alt text](https://romulusae.github.io/romulus/docs/modeN_simplified.png "Romulus-N")
+Romulus-N AEAD   
+
 ![alt text](https://romulusae.github.io/romulus/docs/modeM_simplified.png "Romulus-M")
+Romulus-M AEAD    
+
 ![alt text](https://romulusae.github.io/romulus/docs/modeT.png "Romulus-T")
+Romulus-T AEAD      
+
 ![alt text](https://romulusae.github.io/romulus/docs/modeH.png "Romulus-H")
+Romulus-H hash function      
 
 # Features
 
