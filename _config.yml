@@ -1,2 +1,4 @@
 theme: jekyll-theme-slate
-title: Romulus Authenticated Encryption 
+title: Romulus Authenticated Encryption / Hash
+footer: false
+description: "Romulus Authenticated Encryption / Hash"
