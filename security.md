@@ -30,7 +30,11 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 
 - Romulus-M. TODO
 
-- Romulus-T. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). TODO
+- Romulus-T. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). In detail, suppose the adversary makes queries to encryption, decryption, and the ideal tweakable blockcipher oracles, with p ideal tweakable blockcipher queries and S total queried blocks for both enc/dec queries. Then the AE advantage is at most 25n(S+p)/2^n + 27(S+p)/2^n + 1/2^n.
+
+Regarding side-channel security of a concrete implementation of Romulus-T, as long as the side-channel attacker has not recovered the key K, integrity is ensured up to 2^n/n computations and 2^n/n encryption/decryption queries, even if nonces are reused in arbitrary. This is the so-called Ciphertext Integrity with Misuse and encryption/decryption Leakage (CIML2) security model.
+
+On the other hand, leakage confidentiality is ensured, as long as: (a) the side-channel attacker has not recovered the key K, and (b) the side-channel attacker has not recovered the internal state that appeared during encrypting the confidential messages, and (c) nonces used for encrypting confidential messages are never reused. This is the so-called CCA with Misuse-resilience and encryption/decryption Leakage (CCAmL2) security model.
 
 - Romulus-H. Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). TODO
 
