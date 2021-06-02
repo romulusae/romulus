@@ -29,6 +29,7 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 - Romulus-N. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
 
 - Romulus-M. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 5v/2^n plus computational security of the internal TBC accepting S queries.
+
 If the adversary can repeat using the same nonce, let r be the maximum number of repetition of a nonce, i.e., the adversary can reuse the same nonce N for r times in its encryption queries. Then with the same convention as above, the so-called AE advantage is at most 8rS/2^n + 5rv/2^n plus computational security of the internal TBC accepting S queries.
 
 - Romulus-T. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). In detail, suppose the adversary makes queries to encryption, decryption, and the ideal tweakable blockcipher oracles, with p ideal tweakable blockcipher queries and S total queried blocks for both enc/dec queries. Then the AE advantage is at most 25n(S+p)/2^n + 27(S+p)/2^n + 1/2^n.
