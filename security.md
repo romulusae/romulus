@@ -28,7 +28,9 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 
 - Romulus-N. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
 
-- Romulus-M. TODO
+- Romulus-M. Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 5v/2^n plus computational security of the internal TBC accepting S queries.
+
+If the adversary can repeat using the same nonce, let r be the maximum number of repetition of a nonce, i.e., the adversary can reuse the same nonce N for r times in its encryption queries. Then with the same convention as above, the so-called AE advantage is at most 8rS/2^n + 5rv/2^n plus computational security of the internal TBC accepting S queries.
 
 - Romulus-T. Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). In detail, suppose the adversary makes queries to encryption, decryption, and the ideal tweakable blockcipher oracles, with p ideal tweakable blockcipher queries and S total queried blocks for both enc/dec queries. Then the AE advantage is at most 25n(S+p)/2^n + 27(S+p)/2^n + 1/2^n.
 
@@ -36,7 +38,7 @@ Regarding side-channel security of a concrete implementation of Romulus-T, as lo
 
 On the other hand, leakage confidentiality is ensured, as long as: (a) the side-channel attacker has not recovered the key K, and (b) the side-channel attacker has not recovered the internal state that appeared during encrypting the confidential messages, and (c) nonces used for encrypting confidential messages are never reused. This is the so-called CCA with Misuse-resilience and encryption/decryption Leakage (CCAmL2) security model.
 
-- Romulus-H. Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). TODO
+- Romulus-H. Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). It shows that the indifferentiability advantage is at most 120Q/(2^n-2Q)+(148Q/(2^n-2Q))^15, where the adversary makes q hash queries of S message blocks and p ideal tweakable blockcipher queries, with Q=S+p. Here, n=128 and we used mu=15, which is a parameter used to express the indifferentiability advantage in the MDPH article.
 
 
 # Third party analysis
