@@ -15,30 +15,30 @@ factors are neglected. See submission document for the interpretations of these 
 | ------------- |:-------------:|:-------------:|:-------------:|:-------------:|  
 | **Romulus-N**      | n | n | - | - |   
 | **Romulus-M**      | n | n | n/2 ∼ n | n/2 ∼ n |   
-| **Romulus-T**     | n − log<sub>2</sub>(n) | n − log2(n) | - |  n − log2(n) |   
+| **Romulus-T**     | n − log<sub>2</sub>(n) | n − log<sub>2</sub>(n) | - |  n − log<sub>2</sub>(n) |   
 
 Security claims of Romulus-H. In the table, n = 128 and small constant factors are neglected.
 
 | Member        | Collision           | Preimage   | 2nd Preimage |   
 | ------------- |:-------------:|:-------------:|:-------------:|   
-| **Romulus-H**      | n − log2(n) | n − log2(n) | n − log2(n) |   
+| **Romulus-H**      | n − log<sub>2</sub>(n) | n − log<sub>2</sub>(n) | n − log<sub>2</sub>(n) |   
 
 
 # Security Proofs
 
-- **Romulus-N.** Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2^n + 2v/2^t plus computational security of the internal TBC accepting S queries. 
+- **Romulus-N.** Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and t-bit tag (where t is in [1,n]), and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 3v/2<sup>n</sup> + 2v/2<sup>t</sup> plus computational security of the internal TBC accepting S queries. 
 
-- **Romulus-M.** Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 5v/2^n plus computational security of the internal TBC accepting S queries.
+- **Romulus-M.** Suppose the adversary makes queries to both encryption and decryption oracles, with v verification queries, and S total queried blocks for both enc/dec queries. Then the so-called AE advantage is at most 5v/2<sup>n</sup> plus computational security of the internal TBC accepting S queries.
 
-    If the adversary can repeat using the same nonce, let r be the maximum number of repetition of a nonce, i.e., the adversary can reuse the same nonce N for r times in its encryption queries. Then with the same convention as above, the so-called AE advantage is at most 8rS/2^n + 5rv/2^n plus computational security of the internal TBC accepting S queries.
+    If the adversary can repeat using the same nonce, let r be the maximum number of repetition of a nonce, i.e., the adversary can reuse the same nonce N for r times in its encryption queries. Then with the same convention as above, the so-called AE advantage is at most 8rS/2<sup>n</sup> + 5rv/2<sup>n</sup> plus computational security of the internal TBC accepting S queries.
 
-- **Romulus-T.** Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). In detail, suppose the adversary makes queries to encryption, decryption, and the ideal tweakable blockcipher oracles, with p ideal tweakable blockcipher queries and S total queried blocks for both enc/dec queries. Then the AE advantage is at most 25n(S+p)/2^n + 27(S+p)/2^n + 1/2^n.
+- **Romulus-T.** Security proofs of the TEDT mode are given in the [TEDT article](https://eprint.iacr.org/2019/137). In detail, suppose the adversary makes queries to encryption, decryption, and the ideal tweakable blockcipher oracles, with p ideal tweakable blockcipher queries and S total queried blocks for both enc/dec queries. Then the AE advantage is at most 25n(S+p)/2<sup>n</sup> + 27(S+p)/2<sup>n</sup> + 1/2<sup>n</sup>.
 
-    Regarding side-channel security of a concrete implementation of Romulus-T, as long as the side-channel attacker has not recovered the key K, integrity is ensured up to 2^n/n computations and 2^n/n encryption/decryption queries, even if nonces are reused in arbitrary. This is the so-called Ciphertext Integrity with Misuse and encryption/decryption Leakage (CIML2) security model.
+    Regarding side-channel security of a concrete implementation of Romulus-T, as long as the side-channel attacker has not recovered the key K, integrity is ensured up to 2<sup>n</sup>/n computations and 2<sup>n</sup>/n encryption/decryption queries, even if nonces are reused in arbitrary. This is the so-called Ciphertext Integrity with Misuse and encryption/decryption Leakage (CIML2) security model.
 
     On the other hand, leakage confidentiality is ensured, as long as: (a) the side-channel attacker has not recovered the key K, and (b) the side-channel attacker has not recovered the internal state that appeared during encrypting the confidential messages, and (c) nonces used for encrypting confidential messages are never reused. This is the so-called CCA with Misuse-resilience and encryption/decryption Leakage (CCAmL2) security model.
 
-- **Romulus-H.** Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). It shows that the indifferentiability advantage is at most 120Q/(2^n-2Q)+(148Q/(2^n-2Q))^15, where the adversary makes q hash queries of S message blocks and p ideal tweakable blockcipher queries, with Q=S+p. Here, n=128 and we used mu=15, which is a parameter used to express the indifferentiability advantage in the MDPH article.
+- **Romulus-H.** Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). It shows that the indifferentiability advantage is at most 120Q/(2<sup>n</sup>-2Q)+(148Q/(2<sup>n</sup>-2Q))<sup>15</sup>, where the adversary makes q hash queries of S message blocks and p ideal tweakable blockcipher queries, with Q=S+p. Here, n=128 and we used mu=15, which is a parameter used to express the indifferentiability advantage in the MDPH article.
 
 
 # Third party analysis
