@@ -3,6 +3,8 @@ title: Romulus Authenticated Encryption / Hash
 footer: false
 description: "Romulus Authenticated Encryption / Hash"
 
+encoding: UTF-8
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
