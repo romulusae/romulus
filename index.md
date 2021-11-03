@@ -10,7 +10,7 @@ Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.
 * our Transactions on Symmetric-key Cryptology 2020 [paper](https://tosc.iacr.org/index.php/ToSC/article/view/8560/8131) and corresponding [talk](https://www.youtube.com/watch?v=3ML5g8tnP6A&ab_channel=TheIACR) at FSE 2020
 * our NIST LWC Worksop 2020 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2020/documents/papers/new-results-romulus-lwc2020.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/new-results-on-romulus/images-media/session-2-peyrin-new-results-rolmulus.pdf)
 * our NIST LWC Worksop 2019 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2019/documents/papers/updates-on-romulus-remus-tgif-lwc2019.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf)
-* **(NEW)** The third-party security analysis of the Romulus-N and Romulus-M modes by Jooyoung Lee [document](https://romulusae.github.io/romulus/docs/Security_evaluation_Romulus_Jooyoung_Lee.pdf) 
+* **(NEW)** The third-party security analysis of the Romulus-N and Romulus-M modes by [Jooyoung Lee](https://cs.kaist.ac.kr/people/view?idx=536&kind=faculty&menu=167) (see document [here](https://romulusae.github.io/romulus/docs/Security_evaluation_Romulus_Jooyoung_Lee.pdf))
 
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
 - Romulus-N, a nonce-based AEAD (NAE)  
