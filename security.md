@@ -38,7 +38,7 @@ Security claims of Romulus-H. In the table, n = 128 and small constant factors a
 
     On the other hand, leakage confidentiality is ensured, as long as: (a) the side-channel attacker has not recovered the key K, and (b) the side-channel attacker has not recovered the internal state that appeared during encrypting the confidential messages, and (c) nonces used for encrypting confidential messages are never reused. This is the so-called CCA with Misuse-resilience and encryption/decryption Leakage (CCAmL2) security model.
 
-- **Romulus-H.** Security proofs of the hashing mode are given in the [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4). It shows that the indifferentiability advantage is at most 120Q/(2<sup>n</sup>-2Q)+(148Q/(2<sup>n</sup>-2Q))<sup>15</sup>, where the adversary makes q hash queries of S message blocks and p ideal tweakable blockcipher queries, with Q=S+p. Here, n=128 and we used mu=15, which is a parameter used to express the indifferentiability advantage in the MDPH article.
+- **Romulus-H.** Security proofs of the hashing mode are given in the our [ePrint paper](https://eprint.iacr.org/2021/1469) (which correct a flaw indentified in the original [MDPH article](https://link.springer.com/chapter/10.1007/978-3-030-30530-7_4)). It shows that the indifferentiability advantage is at most 120Q/(2<sup>n</sup>-2Q)+(148Q/(2<sup>n</sup>-2Q))<sup>15</sup>, where the adversary makes q hash queries of S message blocks and p ideal tweakable blockcipher queries, with Q=S+p. Here, n=128 and we used mu=15, which is a parameter used to express the indifferentiability advantage in the MDPH article.
 
 
 # Third party analysis
