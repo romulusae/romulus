@@ -11,6 +11,8 @@ Romulus is a submission to the [NIST lightweight competition](https://csrc.nist.
 * our NIST LWC Worksop 2020 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2020/documents/papers/new-results-romulus-lwc2020.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/new-results-on-romulus/images-media/session-2-peyrin-new-results-rolmulus.pdf)
 * our NIST LWC Worksop 2019 [paper](https://csrc.nist.gov/CSRC/media/Events/lightweight-cryptography-workshop-2019/documents/papers/updates-on-romulus-remus-tgif-lwc2019.pdf) and [slides](https://csrc.nist.gov/CSRC/media/Presentations/updates-on-romulus-remus-and-tgif/images-media/session9-minematsu-updates-romulus-remus-tgif.pdf)
 * **(NEW)** The third-party security analysis of the Romulus-N and Romulus-M operating modes by [Jooyoung Lee](https://cs.kaist.ac.kr/people/view?idx=536&kind=faculty&menu=167) (see document [here](https://romulusae.github.io/romulus/docs/Security_evaluation_Romulus_Jooyoung_Lee.pdf))
+* **(NEW)** A new security proof for the MDPH mode used in Romulus-H ([ePrint](https://eprint.iacr.org/2021/1469))
+
 
 Romulus is composed of 4 variants, each using the tweakable block cipher Skinny-128/384+ internally:  
 - Romulus-N, a nonce-based AEAD (NAE)  
